@@ -19,10 +19,6 @@ A continuación, se detalla la forma de correr los test de la aplicación de ang
   <li>Ingresar el comando <code>npm run test:watch</code> para ejecutar las prueba de la aplicación.</li>
 </ul>
 
-### Diseño final de la aplicación de Angular - "TuSegundazo.com"
-
-![TuSegundazo - Page](https://github.com/JulianP911/MISO4104-Parcial-Practico/assets/60160654/d002807e-0589-419a-afc7-277a49313c84)
-
 ### Ejecución de las pruebas de lógica de la aplicación de Nest - "miso4403-parcial-practico"
 
 <img width="446" alt="Screenshot 2025-05-15 at 8 20 12 PM" src="https://github.com/user-attachments/assets/6ec28df0-9b54-4c1e-942c-c86d30cca87b" />
