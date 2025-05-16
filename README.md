@@ -123,6 +123,11 @@ A continuación, se muestra la estructura general del proyecto:
 ├── tsconfig.build.json
 └── tsconfig.json
 ```
+---
+
+### 🛠️ Configuración de la base de datos
+
+Para poder ejecutar la aplicación, asegúrate de tener una base de datos PostgreSQL corriendo en tu máquina local en el puerto `5432`. Además, debes crear una base de datos con el nombre `restaurante`.
 
 ---
 
