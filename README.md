@@ -5,32 +5,123 @@
 A continuación, se muestra la estructura general del proyecto:
 
 ```
-├── 📄 README.md
-├── 📁 collections                # Colecciones Postman para probar el API
+├── README.md
+├── collections
 │   ├── Dishes.postman_collection.json
 │   ├── Restaurants-Dishes.postman_collection.json
 │   └── Restaurants.postman_collection.json
-├── 📁 dist                      # Archivos compilados de la aplicación
-│   ├── app.*                    # Archivos principales de la app
-│   ├── plato/                   # Módulo de platos
-│   ├── restaurante/            # Módulo de restaurantes
-│   ├── restaurante-plato/      # Relación restaurantes-platos
-│   └── shared/                 # Código compartido (errores, utilidades, etc.)
-├── 📁 src                       # Código fuente de la aplicación
-│   ├── app.*                   # Entrypoint y configuración principal
-│   ├── plato/                  # Controladores, servicios y entidades de Plato
-│   ├── restaurante/            # Controladores, servicios y entidades de Restaurante
-│   ├── restaurante-plato/      # Lógica de la relación entre Restaurante y Plato
-│   └── shared/                 # Utilidades compartidas como errores e interceptores
-├── 📁 test                      # Pruebas end-to-end (E2E)
+├── dist
+│   ├── app.controller.d.ts
+│   ├── app.controller.js
+│   ├── app.controller.js.map
+│   ├── app.module.d.ts
+│   ├── app.module.js
+│   ├── app.module.js.map
+│   ├── app.service.d.ts
+│   ├── app.service.js
+│   ├── app.service.js.map
+│   ├── main.d.ts
+│   ├── main.js
+│   ├── main.js.map
+│   ├── plato
+│   │   ├── plato.controller.d.ts
+│   │   ├── plato.controller.js
+│   │   ├── plato.controller.js.map
+│   │   ├── plato.dto.d.ts
+│   │   ├── plato.dto.js
+│   │   ├── plato.dto.js.map
+│   │   ├── plato.entity.d.ts
+│   │   ├── plato.entity.js
+│   │   ├── plato.entity.js.map
+│   │   ├── plato.module.d.ts
+│   │   ├── plato.module.js
+│   │   ├── plato.module.js.map
+│   │   ├── plato.service.d.ts
+│   │   ├── plato.service.js
+│   │   └── plato.service.js.map
+│   ├── restaurante
+│   │   ├── restaurante.controller.d.ts
+│   │   ├── restaurante.controller.js
+│   │   ├── restaurante.controller.js.map
+│   │   ├── restaurante.dto.d.ts
+│   │   ├── restaurante.dto.js
+│   │   ├── restaurante.dto.js.map
+│   │   ├── restaurante.entity.d.ts
+│   │   ├── restaurante.entity.js
+│   │   ├── restaurante.entity.js.map
+│   │   ├── restaurante.module.d.ts
+│   │   ├── restaurante.module.js
+│   │   ├── restaurante.module.js.map
+│   │   ├── restaurante.service.d.ts
+│   │   ├── restaurante.service.js
+│   │   └── restaurante.service.js.map
+│   ├── restaurante-plato
+│   │   ├── restaurante-plato.controller.d.ts
+│   │   ├── restaurante-plato.controller.js
+│   │   ├── restaurante-plato.controller.js.map
+│   │   ├── restaurante-plato.module.d.ts
+│   │   ├── restaurante-plato.module.js
+│   │   ├── restaurante-plato.module.js.map
+│   │   ├── restaurante-plato.service.d.ts
+│   │   ├── restaurante-plato.service.js
+│   │   └── restaurante-plato.service.js.map
+│   ├── shared
+│   │   ├── errors
+│   │   │   ├── business-errors.d.ts
+│   │   │   ├── business-errors.js
+│   │   │   └── business-errors.js.map
+│   │   ├── interceptors
+│   │   │   └── business-errors
+│   │   │       ├── business-errors.interceptor.d.ts
+│   │   │       ├── business-errors.interceptor.js
+│   │   │       └── business-errors.interceptor.js.map
+│   │   └── testing-utils
+│   │       ├── typeorm-testing-config.d.ts
+│   │       ├── typeorm-testing-config.js
+│   │       └── typeorm-testing-config.js.map
+│   └── tsconfig.build.tsbuildinfo
+├── eslint.config.mjs
+├── nest-cli.json
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app.controller.spec.ts
+│   ├── app.controller.ts
+│   ├── app.module.ts
+│   ├── app.service.ts
+│   ├── main.ts
+│   ├── plato
+│   │   ├── plato.controller.ts
+│   │   ├── plato.dto.ts
+│   │   ├── plato.entity.ts
+│   │   ├── plato.module.ts
+│   │   ├── plato.service.spec.ts
+│   │   └── plato.service.ts
+│   ├── restaurante
+│   │   ├── restaurante.controller.ts
+│   │   ├── restaurante.dto.ts
+│   │   ├── restaurante.entity.ts
+│   │   ├── restaurante.module.ts
+│   │   ├── restaurante.service.spec.ts
+│   │   └── restaurante.service.ts
+│   ├── restaurante-plato
+│   │   ├── restaurante-plato.controller.ts
+│   │   ├── restaurante-plato.module.ts
+│   │   ├── restaurante-plato.service.spec.ts
+│   │   └── restaurante-plato.service.ts
+│   └── shared
+│       ├── errors
+│       │   └── business-errors.ts
+│       ├── interceptors
+│       │   └── business-errors
+│       │       └── business-errors.interceptor.ts
+│       └── testing-utils
+│           └── typeorm-testing-config.ts
+├── test
 │   ├── app.e2e-spec.ts
 │   └── jest-e2e.json
-├── 🛠 eslint.config.mjs
-├── 🛠 nest-cli.json
-├── 📦 package.json
-├── 📦 package-lock.json
-├── 🛠 tsconfig.json
-└── 🛠 tsconfig.build.json
+├── tsconfig.build.json
+└── tsconfig.json
 ```
 
 ---
