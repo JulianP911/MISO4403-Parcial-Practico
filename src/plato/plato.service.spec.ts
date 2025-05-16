@@ -6,6 +6,9 @@ import { Categoria, PlatoEntity } from './plato.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { faker } from '@faker-js/faker';
 
+/**
+ * Pruebas unitarias para el servicio PlatoService.
+ */
 describe('PlatoService', () => {
   let service: PlatoService;
   let repository: Repository<PlatoEntity>;

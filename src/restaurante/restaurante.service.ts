@@ -4,6 +4,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 
+/**
+ * Servicio que maneja la lógica de negocio relacionada con el recurso Restaurante.
+ */
 @Injectable()
 export class RestauranteService {
     constructor(

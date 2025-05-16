@@ -7,6 +7,9 @@ import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-co
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { faker } from '@faker-js/faker/.';
 
+/**
+ * Pruebas unitarias para el servicio RestaurantePlatoService.
+ */
 describe('RestaurantePlatoService', () => {
   let service: RestaurantePlatoService;
   let restauranteRepository: Repository<RestauranteEntity>;

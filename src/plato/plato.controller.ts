@@ -5,6 +5,9 @@ import { plainToInstance } from 'class-transformer';
 import { PlatoDto } from './plato.dto';
 import { BusinessErrorsInterceptor } from 'src/shared/interceptors/business-errors/business-errors.interceptor';
 
+/**
+ * Controlador que maneja las rutas relacionadas con el recurso Plato.
+ */
 @Controller('dishes')
 @UseInterceptors(BusinessErrorsInterceptor)
 export class PlatoController {

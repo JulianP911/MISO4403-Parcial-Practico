@@ -5,6 +5,9 @@ import { RestauranteEntity } from '../restaurante/restaurante.entity';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 import { Repository } from 'typeorm';
 
+/**
+ * Servicio que maneja la lógica de negocio relacionada con la asociación entre Restaurantes y Platos.
+ */
 @Injectable()
 export class RestaurantePlatoService {
     constructor(
@@ -15,6 +18,7 @@ export class RestaurantePlatoService {
         private readonly platoRepository: Repository<PlatoEntity>
     )  {}
 
+    // Logica  Añadir un plato a un restaurante
     async addDishRestaurant(restauranteId: string, platoId: string): Promise<RestauranteEntity> {
        const plato: PlatoEntity | null = await this.platoRepository.findOne({where: {id: platoId}});
         if (!plato)
@@ -28,7 +32,7 @@ export class RestaurantePlatoService {
         return await this.restauranteRepository.save(restaurante);
     }
 
-   async findDishFromRestaurant(restauranteId: string, platoId: string): Promise<PlatoEntity> {
+    async findDishFromRestaurant(restauranteId: string, platoId: string): Promise<PlatoEntity> {
         const plato: PlatoEntity | null = await this.platoRepository.findOne({where: {id: platoId}});
         if (!plato)
              throw new BusinessLogicException("No se encontró el plato con la identificación proporcionada", BusinessError.NOT_FOUND)
@@ -43,7 +47,7 @@ export class RestaurantePlatoService {
             throw new BusinessLogicException("El plato con el id dado no está asociado con el restaurante", BusinessError.PRECONDITION_FAILED)
 
         return restaurantePlato;
-   }
+    }
 
     async findDishesFromRestaurant(restauranteId: string): Promise<PlatoEntity[]> {
         const restaurante: RestauranteEntity | null = await this.restauranteRepository.findOne({where: {id: restauranteId}, relations: ["platos"]});

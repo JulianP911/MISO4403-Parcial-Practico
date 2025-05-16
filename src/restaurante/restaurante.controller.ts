@@ -5,6 +5,9 @@ import { RestauranteEntity } from './restaurante.entity';
 import { RestauranteDto } from './restaurante.dto';
 import { BusinessErrorsInterceptor } from 'src/shared/interceptors/business-errors/business-errors.interceptor';
 
+/**
+ * Controlador que maneja las rutas relacionadas con el recurso Restaurante.
+ */
 @Controller('restaurants')
 @UseInterceptors(BusinessErrorsInterceptor)
 export class RestauranteController {

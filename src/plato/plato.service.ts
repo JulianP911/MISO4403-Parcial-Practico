@@ -4,6 +4,9 @@ import { Categoria, PlatoEntity } from './plato.entity';
 import { Repository } from 'typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 
+/**
+ * Servicio que maneja la lógica de negocio relacionada con el recurso Plato.
+ */
 @Injectable()
 export class PlatoService {
     constructor(

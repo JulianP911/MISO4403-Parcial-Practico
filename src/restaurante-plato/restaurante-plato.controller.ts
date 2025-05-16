@@ -5,6 +5,9 @@ import { plainToInstance } from 'class-transformer';
 import { PlatoEntity } from 'src/plato/plato.entity';
 import { PlatoDto } from 'src/plato/plato.dto';
 
+/**
+ * Controlador que maneja las rutas relacionadas con la asociación de Platos a Restaurantes.
+ */
 @Controller('restaurants')
 @UseInterceptors(BusinessErrorsInterceptor)
 export class RestaurantePlatoController {

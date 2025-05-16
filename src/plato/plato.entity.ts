@@ -8,6 +8,9 @@ export enum Categoria {
   BEBIDA = 'Bebida',
 }
 
+/**
+ * Entidad que representa un Plato en la base de datos.
+ */
 @Entity()
 export class PlatoEntity {
     @PrimaryGeneratedColumn('uuid')

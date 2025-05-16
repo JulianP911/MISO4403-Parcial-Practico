@@ -10,6 +10,9 @@ export enum TipoCocina {
   INTERNACIONAL = 'Internacional',
 }
 
+/**
+ * Entidad que representa un Restaurante en la base de datos.
+ */
 @Entity()
 export class RestauranteEntity {
     @PrimaryGeneratedColumn('uuid')

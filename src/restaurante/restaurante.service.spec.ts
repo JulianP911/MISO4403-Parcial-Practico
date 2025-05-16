@@ -6,6 +6,9 @@ import { RestauranteEntity, TipoCocina } from './restaurante.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { faker } from '@faker-js/faker';
 
+/**
+ * Pruebas unitarias para el servicio RestauranteService.
+ */
 describe('RestauranteService', () => {
   let service: RestauranteService;
   let repository: Repository<RestauranteEntity>;
