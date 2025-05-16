@@ -1,0 +1,1582 @@
+{
+	"info": {
+		"_postman_id": "d6506279-0d81-4415-aa19-fceb27022028",
+		"name": "Restaurants-Dishes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26509901"
+	},
+	"item": [
+		{
+			"name": "Add a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"restaurant_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Trattoria Bella Italia\",\n  \"direccion\": \"Av. Roma 123, Ciudad Gourmet\",\n  \"tipoCocina\": \"Italiana\",\n  \"urlPaginaWeb\": \"https://bellaitalia.example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/restaurants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a restaurant",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Trattoria Bella Italia\",\n  \"direccion\": \"Av. Roma 123, Ciudad Gourmet\",\n  \"tipoCocina\": \"Italiana\",\n  \"urlPaginaWeb\": \"https://bellaitalia.example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"79ddcfed-c2fd-4eba-84c7-e3ff258508e0\",\n    \"nombre\": \"Trattoria Bella Italia\",\n    \"direccion\": \"Av. Roma 123, Ciudad Gourmet\",\n    \"tipoCocina\": \"Italiana\",\n    \"urlPaginaWeb\": \"https://bellaitalia.example.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a dish 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"dish_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Spaghetti a la Boloñesa\",\n  \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n  \"precio\": 24.99,\n  \"categoria\": \"Plato Fuerte\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a dish",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Spaghetti a la Boloñesa\",\n  \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n  \"precio\": 24.99,\n  \"categoria\": \"Plato Fuerte\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cultures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cultures"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"a1c9d75a-b2e5-4f5e-aa04-a0d54de67347\",\n    \"nombre\": \"Spaghetti a la Boloñesa\",\n    \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n    \"precio\": 24.99,\n    \"categoria\": \"Plato Fuerte\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a dish 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"dish_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Spaghetti a la carbonara\",\n    \"descripcion\": \"Pasta italiana con salsa de huevo y bechamel.\",\n    \"precio\": 24.99,\n    \"categoria\": \"Plato Fuerte\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a dish",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Spaghetti a la Boloñesa\",\n  \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n  \"precio\": 24.99,\n  \"categoria\": \"Plato Fuerte\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cultures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cultures"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"a1c9d75a-b2e5-4f5e-aa04-a0d54de67347\",\n    \"nombre\": \"Spaghetti a la Boloñesa\",\n    \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n    \"precio\": 24.99,\n    \"categoria\": \"Plato Fuerte\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a dish to a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"{{dish_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a restaurant to a culture",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"{{dish_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"de4d4709-8858-4978-ac4b-5098c0f20290\",\n    \"nombre\": \"Trattoria Bella Italia\",\n    \"direccion\": \"Av. Roma 123, Ciudad Gourmet\",\n    \"tipoCocina\": \"Italiana\",\n    \"urlPaginaWeb\": \"https://bellaitalia.example.com\",\n    \"platos\": [\n        {\n            \"id\": \"bee63222-e3ae-495d-b9d8-9d7bd5562178\",\n            \"nombre\": \"Spaghetti a la Boloñesa\",\n            \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n            \"precio\": 24.99,\n            \"categoria\": \"Plato Fuerte\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid dish to a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el plato con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid dish to a restaurant",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el plato con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a dish to an invalid restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el restaurante con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes/{{dish_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000",
+						"dishes",
+						"{{dish_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a dish to an invalid restaurant",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes/{{dish_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000",
+								"dishes",
+								"{{dish_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el restaurante con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a dish of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"{{dish_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a dish of a restaurant",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"{{dish_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bee63222-e3ae-495d-b9d8-9d7bd5562178\",\n    \"nombre\": \"Spaghetti a la Boloñesa\",\n    \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n    \"precio\": 24.99,\n    \"categoria\": \"Plato Fuerte\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid dish of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el plato con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid dish of a restaurant",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el plato con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a restaurant of an invalid culture",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el restaurante con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes/{{dish_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000",
+						"dishes",
+						"{{dish_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a restaurant of an invalid culture",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes/{{dish_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000",
+								"dishes",
+								"{{dish_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el restaurante con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a dish non-associated to a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El plato con el id dado no está asociado con el restaurante\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"{{dish_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a dish non-associated to a restaurant",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"{{dish_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"El plato con el id dado no está asociado con el restaurante\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all dishes of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all dishes of a restaurant",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"bee63222-e3ae-495d-b9d8-9d7bd5562178\",\n        \"nombre\": \"Spaghetti a la Boloñesa\",\n        \"descripcion\": \"Pasta italiana con salsa de carne y tomate.\",\n        \"precio\": 24.99,\n        \"categoria\": \"Plato Fuerte\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all dishes of an invalid restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el restaurante con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all dishes of an invalid restaurant",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000",
+								"dishes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el restaurante con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update dishes of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"{{dish_id_2}}\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update dishes of a restaurant",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"{{restaurant_id_2}}\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"de4d4709-8858-4978-ac4b-5098c0f20290\",\n    \"nombre\": \"Trattoria Bella Italia\",\n    \"direccion\": \"Av. Roma 123, Ciudad Gourmet\",\n    \"tipoCocina\": \"Italiana\",\n    \"urlPaginaWeb\": \"https://bellaitalia.example.com\",\n    \"platos\": [\n        {\n            \"id\": \"be90b946-3239-4ee6-a9ce-35da24616af1\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid dishes of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el plato con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update invalid dishes of a restaurant",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el plato con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update dishes of an invalid restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el restaurante con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"{{restaurant_id_2}}\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000",
+						"dishes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update dishes of an invalid restaurant",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"{{restaurant_id_2}}\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000",
+								"dishes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el restaurante con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a dish of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"{{dish_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a dish of a restaurant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"{{dish_id_2}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete a dish of an invalid restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el plato con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes/{{restaurant_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"00000000-0000-0000-0000-000000000000",
+						"dishes",
+						"{{restaurant_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a dish of an invalid restaurant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/00000000-0000-0000-0000-000000000000/dishes/{{restaurant_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"00000000-0000-0000-0000-000000000000",
+								"dishes",
+								"{{restaurant_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid dish of a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"No se encontró el plato con la identificación proporcionada\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{culture_id}}/dishes/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{culture_id}}",
+						"dishes",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid dish of a restaurant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{culture_id}}/dishes/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{culture_id}}",
+								"dishes",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"No se encontró el plato con la identificación proporcionada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a dish non-associated to a restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El plato con el id dado no está asociado con el restaurante\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}",
+						"dishes",
+						"{{dish_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a dish non-associated to a restaurant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurant_id}}/dishes/{{dish_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"{{restaurant_id}}",
+								"dishes",
+								"{{dish_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"El plato con el id dado no está asociado con el restaurante\"\n}"
+				}
+			]
+		}
+	]
+}
